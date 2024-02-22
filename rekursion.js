@@ -1,17 +1,30 @@
 
 
 function setup(){
-    createCanvas(500,500)
+    createCanvas(800,800)
 }
 
 function draw(){
     background(255)
     noFill()
     
-    translate(width/2, height/2)
-    for(let i = 1; i <= 100; i++){
-        rect(0,0,i*10,i*10);
+    for(i=13; i >0; i--){
+        square(0,0,fib(i)*2);
+        rotate(HALF_PI);
+        translate(0,fib(i+1) * -2);
+      }
+
     }
+    
+    function fib(n){
+       
+      if (n <= 0) {
+        return 0;
+      } else if (n == 1) {
+        return 1;
+      } else {
+        return fib(n - 1) + fib (n - 2);
+      }
 }
     
 function fibRekursion(n)
@@ -23,6 +36,7 @@ function fibRekursion(n)
 console.time("rekursion")
 fibRekursion(20);
 console.timeEnd("rekursion")
+console.log(fibRekursion(10))
 
 
 function fibIteration(){
@@ -31,7 +45,7 @@ function fibIteration(){
     var fib_c = 0
     //let Vals = [];
     //Vals.push(fib_a)
-    for (let i = 0; i <=10; i++){
+    for (let i = 0; i <=20; i++){
         fib_c = fib_a + fib_b
         fib_b = fib_a
         fib_a = fib_c
@@ -43,4 +57,4 @@ function fibIteration(){
 console.time("iteration")
 fibIteration(20)
 console.timeEnd("iteration")
-console.log(fibIteration())
+console.log(fibIteration(10))

@@ -1,29 +1,28 @@
 function setup(){
-    createCanvas(800,800)
+    createCanvas(800,800) 
 }
 
 function draw(){
     background(255)
     noFill()
-    
-    for(i=13; i >0; i--){
-        square(0,0,fibRekursion(i)*2);
-        rotate(HALF_PI);
-        translate(0,fibRekursion(i+1) * -2);
+    for(i=13; i >0; i--){ //et for-løkke som gentager sig selv 13 gange
+        square(0,0,fibRekursion(i)*2); //tegner en firkant med den samme størrelse som Fibonaccis sekvens ud fra den rekursive funktion
+        rotate(HALF_PI); //drejer tegningen 90 grader rundt
+        translate(0,fibRekursion(i+1) * -2); //tegningen bliver flyttet opad i forhold til Fibonacci sekvens
       }
     }
-   fibRekursion();
 
-    
+
 function fibRekursion(n)
 {
     if(n<=0) return 0
     else if (n==1) return 1
     else return fibRekursion(n-1)+fibRekursion(n-2)
 }
-console.time("rekursion")
-fibRekursion(20);
-console.timeEnd("rekursion")
+
+console.time("rekursion")//starter en timer på den opkommende funktion og vil blive vist nede i console ved navnet "rekursion"
+fibRekursion(20); //kører funktionen og beregner hvad det tyvende tal er i Fibonaccis sekvens
+console.timeEnd("rekursion")//stopper timeren på den færdiggjorte funktion og viser, hvor lang tid det tog for funktionen at beregne det tyvende tal i Fibonacci sekvens
 console.log(fibRekursion(10))
 
 

@@ -12,16 +12,13 @@ function draw(){
     noFill()
     
     for(i=13; i >0; i--){
-        square(0,0,fib(i)*2);
+        square(0,0,fibRekursion(i)*2);
         rotate(HALF_PI);
-        translate(0,fib(i+1) * -2);
+        translate(0,fibRekursion(i+1) * -2);
       }
     }
-    function fib(n){
-      if(n<=0) return 0
-    else if (n==1) return 1
-    else return fibRekursion(n-1)+fibRekursion(n-2)
-}
+   fibRekursion();
+
     
 function fibRekursion(n)
 {
@@ -35,13 +32,13 @@ console.timeEnd("rekursion")
 console.log(fibRekursion(10))
 
 
-function fibIteration(){
+function fibIteration(n){
     var fib_a = 0
     var fib_b = 1
     var fib_c = 0
     //let Vals = [];
     //Vals.push(fib_a)
-    for (let i = 0; i <=10; i++){
+    for (let i = 0; i<n; i++){
         fib_c = fib_a + fib_b
         fib_b = fib_a
         fib_a = fib_c

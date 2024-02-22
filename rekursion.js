@@ -1,10 +1,5 @@
-
-var size;
 function setup(){
     createCanvas(800,800)
-    
-    size = 200;
-    
 }
 
 function draw(){
